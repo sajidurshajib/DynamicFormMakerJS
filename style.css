@@ -1,0 +1,14 @@
+label{
+    color: darkgray;
+    display: block;
+    margin: 10px;
+}
+input[type=text]{
+    display: block;
+    margin:10px;
+}
+
+button{
+    display: block;
+    margin:10px;
+}
