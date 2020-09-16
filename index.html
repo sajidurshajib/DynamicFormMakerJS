@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="./assets/js/justAppend.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <form action="" id="dynamicForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">Create Text field</label>
+                <input type="text" id="labelTextField" placeholder="Label">
+                <input type="text" id="nameTextField" placeholder="give a unique name">
+                <input type="text" id="placeholderTextField" placeholder="placeholder text">
+                <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextField">
+                <button onclick="textFieldTake()">TextField Create</button>            
+                
+                <hr>
 
-    </form>
+                <label for="">Create Text Area</label>
+                <input type="text" id="labelTextArea" placeholder="Label">
+                <input type="text" id="nameTextArea" placeholder="give a unique name">
+                <input type="text" id="placeholderTextArea" placeholder="placeholder text">
+                <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextArea">
+                <button onclick="textAreaTake()">TextArea Create</button>
+            </div>
+            <div class="col-md-7">
+                <form action="" id="dynamicForm">
+
+                </form>
+            </div>
+        </div>
+    </div>
 
 
-    <hr>
-
-    <input type="text" id="labelSelector" placeholder="Label">
-    <input type="text" id="nameSelector" placeholder="give a unique name">
-    <input type="text" id="placeholderSelector" placeholder="placeholder text">
-
-    <button onclick="textFieldTake()">Text</button>
 </body>
 </html>

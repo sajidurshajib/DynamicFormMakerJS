@@ -1,14 +1,54 @@
+input{
+    border: 1px solid #df4f37;
+    border-radius: 2px;
+    padding:2px 5px;
+}
+input:focus{
+    outline: none;
+}
 label{
-    color: darkgray;
+    color: #333;
     display: block;
     margin: 10px;
+}
+.likeLabel{
+    color: #333;
+    margin:10px
 }
 input[type=text]{
     display: block;
     margin:10px;
+    display: block;
+    width: 100%;
+}
+textarea{
+    border: 1px solid #df4f37;
+    border-radius: 2px;
+    padding:2px 5px;
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin:10px;
+}
+textarea:focus{
+    outline: none;
 }
 
 button{
+    background-color:#df4f37;
+    color: #fff;
+    border:none;
+    border-radius: 2px;
     display: block;
     margin:10px;
+    padding: 5px 10px;
+    transition: 200ms;
+    outline: none;
+}
+button:focus{
+    border: none;
+    outline: none;
+}
+button:hover{
+    background-color: #ff5438;
 }
