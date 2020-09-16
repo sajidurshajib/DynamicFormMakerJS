@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
@@ -31,6 +32,20 @@
                 <input type="text" id="placeholderTextArea" placeholder="placeholder text">
                 <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextArea">
                 <button onclick="textAreaTake()">TextArea Create</button>
+
+                <hr>
+
+                <label for="">Create Dropdown</label>
+                <input type="text" id="labelDropDown" placeholder="Label">
+                <input type="text" id="nameTextArea" placeholder="give a unique name">
+                <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextArea">
+
+                <div id="dropDownMakerDiv"></div>
+
+                <button onclick="dropDownOptionAdd()" class="dropAddRemove">Add</button>
+                <button onclick="dropDownOptionRemove()" class="dropAddRemove"">Remove</button>
+                <button onclick="dropDownTake()">TextArea Create</button>
+
             </div>
             <div class="col-md-7">
                 <form action="" id="dynamicForm">

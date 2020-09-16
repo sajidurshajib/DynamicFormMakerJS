@@ -52,3 +52,22 @@ button:focus{
 button:hover{
     background-color: #ff5438;
 }
+
+
+/* For Dropdown*/
+
+.dropAddRemove{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 9px;
+}
+.dropText{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}
+.dropValue{
+    display: inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}

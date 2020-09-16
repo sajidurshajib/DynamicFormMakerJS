@@ -165,3 +165,31 @@ function textAreaShow(textAreaObject){
 
 }
 
+
+
+
+// +---------------------------------+
+// |                                 |
+// |        dropDown code            |
+// |                                 |
+// +---------------------------------+
+
+function dropDownOptionAdd(){
+    var input1 = document.createElement('INPUT');
+    var input2 = document.createElement('INPUT');
+
+    input1.setAttribute('class','dropText');
+    input2.setAttribute('class','dropValue');
+
+    input1.setAttribute('placeholder','Text');
+    input2.setAttribute('placeholder','Value');
+
+    document.getElementById('dropDownMakerDiv').appendChild(input1);
+    document.getElementById('dropDownMakerDiv').appendChild(input2);
+}
+
+function dropDownOptionRemove(){
+    var clearNode = document.getElementById('dropDownMakerDiv');
+    clearNode.removeChild(clearNode.lastElementChild);
+    clearNode.removeChild(clearNode.lastElementChild);
+}
