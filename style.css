@@ -71,3 +71,10 @@ button:hover{
     width: 40%;
     margin: 5px 10px;
 }
+
+select.form-control{
+    display: inline-block;
+    width: auto;
+    margin: 0 10px;
+    border: 1px solid #df4f37;
+}

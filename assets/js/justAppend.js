@@ -27,6 +27,9 @@ function viewAll(){
         else if(ob.field == 'textArea'){
             textAreaShow(MainArray[i]);
         }
+        else if(ob.field == 'dropDown'){
+            dropDownShow(MainArray[i]);
+        }
 
         i+=1;
     }
@@ -66,6 +69,7 @@ function textFieldTake(){
     lbl = document.getElementById("labelTextField").value=''; 
     nm = document.getElementById("nameTextField").value='';
     plchldr = document.getElementById("placeholderTextField").value='';
+    rqrd = document.getElementById("requiredTextField").checked=false;
 
     // For show
     //textFieldShow(MainArray[0])
@@ -134,6 +138,7 @@ function textAreaTake(){
     lbl = document.getElementById("labelTextArea").value=''; 
     nm = document.getElementById("nameTextArea").value='';
     plchldr = document.getElementById("placeholderTextArea").value='';
+    rqrd = document.getElementById("requiredTextArea").checked=false;
 
     viewAll();
 }
@@ -188,8 +193,100 @@ function dropDownOptionAdd(){
     document.getElementById('dropDownMakerDiv').appendChild(input2);
 }
 
+
 function dropDownOptionRemove(){
     var clearNode = document.getElementById('dropDownMakerDiv');
     clearNode.removeChild(clearNode.lastElementChild);
     clearNode.removeChild(clearNode.lastElementChild);
+}
+
+
+function dropDownTake(){
+    var lbl = document.getElementById("labelDropDown").value; 
+    var nm = document.getElementById("nameDropDown").value;
+    var rqrd = document.getElementById("requiredDropDown").checked;
+
+    count += 1;
+    var dropDown = {
+        id:count,
+        field: 'dropDown',
+        label: lbl,
+        name: nm,
+        required:rqrd,
+        textArr:[],
+        valueArr:[]
+    }
+   
+    //dropDown text and value
+    document.querySelectorAll('.dropText').forEach(function(el){
+        dropDown.textArr.push(el.value);
+    });
+
+    document.querySelectorAll('.dropValue').forEach(function(el){
+        dropDown.valueArr.push(el.value);
+    });
+
+
+    MainArray.push(dropDown);
+    //var test = Object.values(MainArray[0]);
+
+
+    //Clear all field
+    lbl = document.getElementById("labelDropDown").value=''; 
+    nm = document.getElementById("nameDropDown").value='';
+    rqrd = document.getElementById("requiredDropDown").checked=false;
+
+    var clearNode = document.getElementById('dropDownMakerDiv');
+    while (clearNode.firstElementChild) {
+        clearNode.removeChild(clearNode.lastElementChild);
+    }
+
+
+    //For show
+    //textFieldShow(MainArray[0])
+    viewAll();
+}
+
+
+function dropDownShow(dropDownObject){
+    var id = dropDownObject.id;
+    var labelText = dropDownObject.label;
+    var nameText = dropDownObject.name;
+    var requiredConfirm = dropDownObject.required;
+    var textArr = dropDownObject.textArr;
+    var valueArr = dropDownObject.valueArr;
+
+    var lbl = document.createElement("LABEL");
+    var elm = document.createElement("SELECT");
+
+    var textNode = document.createTextNode(labelText);
+    lbl.appendChild(textNode)
+
+    elm.setAttribute('id',nameText);
+    elm.setAttribute('name',nameText);
+    elm.setAttribute('class','form-control');
+
+    if(requiredConfirm == true){
+        elm.setAttribute('required','');
+    }
+
+    document.getElementById("dynamicForm").appendChild(lbl);
+    document.getElementById("dynamicForm").appendChild(elm);
+
+    var n = textArr.length;
+    var i = 0;
+    while(i<n){
+        // append option
+        var elmChild = document.createElement("OPTION");
+        
+        var textNodeChild = document.createTextNode(textArr[i]);
+        elmChild.appendChild(textNodeChild);
+
+        elmChild.setAttribute('value',valueArr[i]);
+        //elmChild.setAttribute('class','dropdown-item');
+
+        document.getElementById(nameText).appendChild(elmChild);
+        i+=1;
+    }
+
 }
