@@ -27,7 +27,7 @@ button:hover{
 label{
     color: #333;
     display: block;
-    margin: 10px;
+    margin: 10px auto;
 }
 .likeLabel{
     color: #333;
