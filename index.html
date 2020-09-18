@@ -17,34 +17,45 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <label for="">Create Text field</label>
-                <input type="text" id="labelTextField" placeholder="Label">
-                <input type="text" id="nameTextField" placeholder="give a unique name">
-                <input type="text" id="placeholderTextField" placeholder="placeholder text">
-                <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextField">
-                <button onclick="textFieldTake()">TextField Create</button>            
                 
-                <hr>
+                <p class="flip" id="textFieldShowBtn" onclick="textFieldShowClick()">TextField <span>+</span></p>
+                <p class="flip" id="textFieldHideBtn" onclick="textFieldHideClick()">TextField <span>-</span></p>
+                <div id="forTextField">
+                    <input type="text" id="labelTextField" placeholder="Label">
+                    <input type="text" id="nameTextField" placeholder="give a unique name">
+                    <input type="text" id="placeholderTextField" placeholder="placeholder text">
+                    <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextField">
+                    <button onclick="textFieldTake()">TextField Create</button>            
+                    <hr>
+                </div>
+                
+                <p class="flip" id="textAreaShowBtn" onclick="textAreaShowClick()">TextArea <span>+</span></p>
+                <p class="flip" id="textAreaHideBtn" onclick="textAreaHideClick()">TextArea <span>-</span></p>
+                <div id="forTextArea">
+                    <input type="text" id="labelTextArea" placeholder="Label">
+                    <input type="text" id="nameTextArea" placeholder="give a unique name">
+                    <input type="text" id="placeholderTextArea" placeholder="placeholder text">
+                    <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextArea">
+                    <button onclick="textAreaTake()">TextArea Create</button>
+                    <hr>
+                </div>
+                
 
-                <label for="">Create Text Area</label>
-                <input type="text" id="labelTextArea" placeholder="Label">
-                <input type="text" id="nameTextArea" placeholder="give a unique name">
-                <input type="text" id="placeholderTextArea" placeholder="placeholder text">
-                <span class="likeLabel">Required</span><input type="checkbox" id="requiredTextArea">
-                <button onclick="textAreaTake()">TextArea Create</button>
+                <p class="flip" id="dropDownShowBtn" onclick="dropDownShowClick()">DropDown <span>+</span></p>
+                <p class="flip" id="dropDownHideBtn" onclick="dropDownHideClick()">DropDown <span>-</span></p>
+                <div id="forDropDown">
+                    <input type="text" id="labelDropDown" placeholder="Label">
+                    <input type="text" id="nameDropDown" placeholder="give a unique name">
+                    <span class="likeLabel">Required</span><input type="checkbox" id="requiredDropDown">
 
-                <hr>
+                    <div id="dropDownMakerDiv"></div>
 
-                <label for="">Create Dropdown</label>
-                <input type="text" id="labelDropDown" placeholder="Label">
-                <input type="text" id="nameDropDown" placeholder="give a unique name">
-                <span class="likeLabel">Required</span><input type="checkbox" id="requiredDropDown">
-
-                <div id="dropDownMakerDiv"></div>
-
-                <button onclick="dropDownOptionAdd()" class="dropAddRemove">Add</button>
-                <button onclick="dropDownOptionRemove()" class="dropAddRemove"">Remove</button>
-                <button onclick="dropDownTake()">DropDown Create</button>
+                    <button onclick="dropDownOptionAdd()" class="dropAddRemove">Add</button>
+                    <button onclick="dropDownOptionRemove()" class="dropAddRemove"">Remove</button>
+                    <button onclick="dropDownTake()">DropDown Create</button>
+                    <hr>
+                </div>
+                
 
             </div>
             <div class="col-md-7">

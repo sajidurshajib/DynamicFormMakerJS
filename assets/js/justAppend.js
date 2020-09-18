@@ -39,13 +39,31 @@ function viewAll(){
 
 
 
+
+
+
+
 // +---------------------------------+
 // |                                 |
 // |        textField code           |
 // |                                 |
 // +---------------------------------+
 
+// Button code
 
+function textFieldShowClick(){
+    document.getElementById("forTextField").style.display="block";
+    document.getElementById("textFieldShowBtn").style.display="none";
+    document.getElementById("textFieldHideBtn").style.display="block";
+}
+
+function textFieldHideClick(){
+    document.getElementById("forTextField").style.display="none";
+    document.getElementById("textFieldShowBtn").style.display="block";
+    document.getElementById("textFieldHideBtn").style.display="none";
+}
+
+// Main code 
 function textFieldTake(){
     
     var lbl = document.getElementById("labelTextField").value; 
@@ -108,13 +126,31 @@ function textFieldShow(textFieldObject){
 
 
 
+
+
+
+
 // +---------------------------------+
 // |                                 |
 // |        textArea code            |
 // |                                 |
 // +---------------------------------+
 
+// Button code
 
+function textAreaShowClick(){
+    document.getElementById("forTextArea").style.display="block";
+    document.getElementById("textAreaShowBtn").style.display="none";
+    document.getElementById("textAreaHideBtn").style.display="block";
+}
+
+function textAreaHideClick(){
+    document.getElementById("forTextArea").style.display="none";
+    document.getElementById("textAreaShowBtn").style.display="block";
+    document.getElementById("textAreaHideBtn").style.display="none";
+}
+
+// Main code 
 function textAreaTake(){
     
     var lbl = document.getElementById("labelTextArea").value; 
@@ -173,12 +209,31 @@ function textAreaShow(textAreaObject){
 
 
 
+
+
+
+
 // +---------------------------------+
 // |                                 |
 // |        dropDown code            |
 // |                                 |
 // +---------------------------------+
 
+// Button code
+
+function dropDownShowClick(){
+    document.getElementById("forDropDown").style.display="block";
+    document.getElementById("dropDownShowBtn").style.display="none";
+    document.getElementById("dropDownHideBtn").style.display="block";
+}
+
+function dropDownHideClick(){
+    document.getElementById("forDropDown").style.display="none";
+    document.getElementById("dropDownShowBtn").style.display="block";
+    document.getElementById("dropDownHideBtn").style.display="none";
+}
+
+// Main code 
 function dropDownOptionAdd(){
     var input1 = document.createElement('INPUT');
     var input2 = document.createElement('INPUT');
@@ -228,8 +283,6 @@ function dropDownTake(){
 
 
     MainArray.push(dropDown);
-    //var test = Object.values(MainArray[0]);
-
 
     //Clear all field
     lbl = document.getElementById("labelDropDown").value=''; 
@@ -241,9 +294,6 @@ function dropDownTake(){
         clearNode.removeChild(clearNode.lastElementChild);
     }
 
-
-    //For show
-    //textFieldShow(MainArray[0])
     viewAll();
 }
 

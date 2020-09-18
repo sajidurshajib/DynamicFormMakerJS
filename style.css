@@ -1,38 +1,4 @@
-input{
-    border: 1px solid #df4f37;
-    border-radius: 2px;
-    padding:2px 5px;
-}
-input:focus{
-    outline: none;
-}
-label{
-    color: #333;
-    display: block;
-    margin: 10px;
-}
-.likeLabel{
-    color: #333;
-    margin:10px
-}
-input[type=text]{
-    display: block;
-    margin:10px;
-    display: block;
-    width: 100%;
-}
-textarea{
-    border: 1px solid #df4f37;
-    border-radius: 2px;
-    padding:2px 5px;
-    display: block;
-    width: 100%;
-    height: 100px;
-    margin:10px;
-}
-textarea:focus{
-    outline: none;
-}
+/*This is for button*/
 
 button{
     background-color:#df4f37;
@@ -54,7 +20,125 @@ button:hover{
 }
 
 
+
+
+/*This is for label*/
+
+label{
+    color: #333;
+    display: block;
+    margin: 10px;
+}
+.likeLabel{
+    color: #333;
+    margin:10px
+}
+
+
+
+
+
+
+/*All input fieald*/
+
+input{
+    border: 1px solid #df4f37;
+    border-radius: 2px;
+    padding:2px 5px;
+}
+input:focus{
+    outline: none;
+}
+
+
+input[type=text]{
+    display: block;
+    margin:10px auto;
+    display: block;
+    width: 100%;
+}
+
+
+
+
+/* flip design*/
+.flip{
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius:2px;
+    background-color: #df4f37;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: 200ms;
+}
+.flip:hover{
+    background-color:#ff5438;
+}
+.flip span{
+    position: absolute;
+    right: 10px;
+}
+
+
+
+
+
+/* Text field */
+#textFieldShowBtn{
+    display: block;
+}
+#textFieldHideBtn{
+    display: none;
+}
+#forTextField{
+    display: none;
+}
+
+
+/*This is for Text area*/
+#textAreaShowBtn{
+    display: block;
+}
+#textAreaHideBtn{
+    display: none;
+}
+#forTextArea{
+    display: none;
+}
+
+textarea{
+    border: 1px solid #df4f37;
+    border-radius: 2px;
+    padding:2px 5px;
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin:10px;
+}
+textarea:focus{
+    outline: none;
+}
+
+
+
+
+
+
+
 /* For Dropdown*/
+#dropDownShowBtn{
+    display: block;
+}
+#dropDownHideBtn{
+    display: none;
+}
+#forDropDown{
+    display: none;
+}
 
 .dropAddRemove{
     display:inline-block;
