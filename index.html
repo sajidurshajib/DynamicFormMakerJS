@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-md-3">
                 
-                <p class="flip" id="textFieldShowBtn" onclick="textFieldShowClick()">TextField <span>+</span></p>
-                <p class="flip" id="textFieldHideBtn" onclick="textFieldHideClick()">TextField <span>-</span></p>
+                <p class="flip" id="textFieldShowBtn" onclick="textFieldShowClick()">Text field <span>+</span></p>
+                <p class="flip" id="textFieldHideBtn" onclick="textFieldHideClick()">Text field <span>-</span></p>
                 <div id="forTextField">
                     <input type="text" id="labelTextField" placeholder="Label">
                     <input type="text" id="nameTextField" placeholder="give a unique name">
@@ -29,8 +29,8 @@
                     <hr>
                 </div>
                 
-                <p class="flip" id="textAreaShowBtn" onclick="textAreaShowClick()">TextArea <span>+</span></p>
-                <p class="flip" id="textAreaHideBtn" onclick="textAreaHideClick()">TextArea <span>-</span></p>
+                <p class="flip" id="textAreaShowBtn" onclick="textAreaShowClick()">Text area <span>+</span></p>
+                <p class="flip" id="textAreaHideBtn" onclick="textAreaHideClick()">Text area <span>-</span></p>
                 <div id="forTextArea">
                     <input type="text" id="labelTextArea" placeholder="Label">
                     <input type="text" id="nameTextArea" placeholder="give a unique name">
@@ -41,8 +41,8 @@
                 </div>
                 
 
-                <p class="flip" id="dropDownShowBtn" onclick="dropDownShowClick()">DropDown <span>+</span></p>
-                <p class="flip" id="dropDownHideBtn" onclick="dropDownHideClick()">DropDown <span>-</span></p>
+                <p class="flip" id="dropDownShowBtn" onclick="dropDownShowClick()">Drop down <span>+</span></p>
+                <p class="flip" id="dropDownHideBtn" onclick="dropDownHideClick()">Drop down <span>-</span></p>
                 <div id="forDropDown">
                     <input type="text" id="labelDropDown" placeholder="Label">
                     <input type="text" id="nameDropDown" placeholder="give a unique name">
@@ -56,6 +56,21 @@
                     <hr>
                 </div>
                 
+
+                <p class="flip" id="radioShowBtn" onclick="radioShowClick()">Radio button <span>+</span></p>
+                <p class="flip" id="radioHideBtn" onclick="radioHideClick()">Radio button <span>-</span></p>
+                <div id="forRadio">
+                    <input type="text" id="labelRadio" placeholder="Label">
+                    <input type="text" id="nameRadio" placeholder="give a unique name">
+                    <span class="likeLabel">Required</span><input type="checkbox" id="requiredRadio">
+
+                    <div id="radioMakerDiv"></div>
+
+                    <button onclick="radioOptionAdd()" class="radioAddRemove">Add</button>
+                    <button onclick="radioOptionRemove()" class="radioAddRemove">Remove</button>
+                    <button onclick="radioTake()">Radio button Create</button>
+                    <hr>
+                </div>
 
             </div>
             <div class="col-md-7">

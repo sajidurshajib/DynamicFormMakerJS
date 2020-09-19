@@ -159,6 +159,41 @@ textarea:focus{
 select.form-control{
     display: inline-block;
     width: auto;
-    margin: 10px auto;
+    margin: auto;
     border: 1px solid #df4f37;
+}
+
+
+/* For RadioBtn*/
+#radioShowBtn{
+    display: block;
+}
+#radioHideBtn{
+    display: none;
+}
+#forRadio{
+    display: none;
+}
+
+
+.radioAddRemove{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 9px;
+}
+
+.radioText{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}
+.radioValue{
+    display: inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}
+
+.radioLabel{
+    display: inline-block;
+    margin: 5px;
 }

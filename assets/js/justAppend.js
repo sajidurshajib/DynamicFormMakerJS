@@ -30,6 +30,9 @@ function viewAll(){
         else if(ob.field == 'dropDown'){
             dropDownShow(MainArray[i]);
         }
+        else if(ob.field == 'radioBtn'){
+            radioBtnShow(MainArray[i]);
+        }
 
         i+=1;
     }
@@ -340,3 +343,143 @@ function dropDownShow(dropDownObject){
     }
 
 }
+
+
+
+
+
+
+
+
+
+// +---------------------------------+
+// |                                 |
+// |        RadioButton code         |
+// |                                 |
+// +---------------------------------+
+
+// Button code
+
+function radioShowClick(){
+    document.getElementById("forRadio").style.display="block";
+    document.getElementById("radioShowBtn").style.display="none";
+    document.getElementById("radioHideBtn").style.display="block";
+}
+
+function radioHideClick(){
+    document.getElementById("forRadio").style.display="none";
+    document.getElementById("radioShowBtn").style.display="block";
+    document.getElementById("radioHideBtn").style.display="none";
+}
+
+// Main code 
+
+function radioOptionAdd(){
+    var input1 = document.createElement('INPUT');
+    var input2 = document.createElement('INPUT');
+
+    input1.setAttribute('class','radioText');
+    input2.setAttribute('class','radioValue');
+
+    input1.setAttribute('placeholder','Text');
+    input2.setAttribute('placeholder','Value');
+
+    document.getElementById('radioMakerDiv').appendChild(input1);
+    document.getElementById('radioMakerDiv').appendChild(input2);
+}
+
+
+function radioOptionRemove(){
+    var clearNode = document.getElementById('radioMakerDiv');
+    clearNode.removeChild(clearNode.lastElementChild);
+    clearNode.removeChild(clearNode.lastElementChild);
+}
+
+
+function radioTake(){
+    var lbl = document.getElementById("labelRadio").value; 
+    var nm = document.getElementById("nameRadio").value;
+    var rqrd = document.getElementById("requiredRadio").checked;
+
+    count += 1;
+    var radioBtn = {
+        id:count,
+        field: 'radioBtn',
+        label: lbl,
+        name: nm,
+        required:rqrd,
+        textArr:[],
+        valueArr:[]
+    }
+   
+    //dropDown text and value
+    document.querySelectorAll('.radioText').forEach(function(el){
+        radioBtn.textArr.push(el.value);
+    });
+
+    document.querySelectorAll('.radioValue').forEach(function(el){
+        radioBtn.valueArr.push(el.value);
+    });
+
+
+    MainArray.push(radioBtn);
+
+    //Clear all field
+    lbl = document.getElementById('labelRadio').value=''; 
+    nm = document.getElementById('nameRadio').value='';
+    rqrd = document.getElementById('requiredRadio').checked=false;
+
+    var clearNode = document.getElementById('radioMakerDiv');
+    while (clearNode.firstElementChild) {
+        clearNode.removeChild(clearNode.lastElementChild);
+    }
+
+    viewAll();
+}
+
+
+
+
+
+function radioBtnShow(radioBtnObject){
+    var id = radioBtnObject.id;
+    var labelText = radioBtnObject.label;
+    var nameText = radioBtnObject.name;
+    var requiredConfirm = radioBtnObject.required;
+    var textArr = radioBtnObject.textArr;
+    var valueArr = radioBtnObject.valueArr;
+
+    var lbl = document.createElement('LABEL');
+
+    var textNode = document.createTextNode(labelText);
+    lbl.appendChild(textNode)
+
+    document.getElementById('dynamicForm').appendChild(lbl);
+
+    var n = textArr.length;
+    var i = 0;
+    while(i<n){
+        var elm = document.createElement('INPUT');
+        elm.setAttribute('type','radio');
+        elm.setAttribute('name',nameText);
+        elm.setAttribute('value',valueArr[i]);
+
+        if(i==0 && requiredConfirm == true){
+            elm.setAttribute('checked','')
+        }
+
+        var elmLabel = document.createElement('LABEL');
+        elmLabel.setAttribute('class','radioLabel')
+        var textNodeChild = document.createTextNode(textArr[i]);
+        elmLabel.appendChild(textNodeChild);
+
+        var elmBr = document.createElement('BR');
+
+        document.getElementById('dynamicForm').appendChild(elm);
+        document.getElementById('dynamicForm').appendChild(elmLabel);
+        document.getElementById('dynamicForm').appendChild(elmBr);
+        i+=1;
+    }
+
+}
+
