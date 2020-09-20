@@ -19,9 +19,6 @@ button:hover{
     background-color: #ff5438;
 }
 
-
-
-
 /*This is for label*/
 
 label{
@@ -194,6 +191,41 @@ select.form-control{
 }
 
 .radioLabel{
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Checkbox */
+
+#checkBoxShowBtn{
+    display: block;
+}
+#checkBoxHideBtn{
+    display: none;
+}
+#forCheckBox{
+    display: none;
+}
+
+
+.checkBoxAddRemove{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 9px;
+}
+
+.checkBoxText{
+    display:inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}
+.checkBoxValue{
+    display: inline-block;
+    width: 40%;
+    margin: 5px 10px;
+}
+
+.checkBoxLabel{
     display: inline-block;
     margin: 5px;
 }

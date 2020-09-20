@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="./assets/js/justAppend.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -72,15 +73,30 @@
                     <hr>
                 </div>
 
+                <p class="flip" id="checkBoxShowBtn" onclick="checkBoxShowClick()">Checkbox <span>+</span></p>
+                <p class="flip" id="checkBoxHideBtn" onclick="checkBoxHideClick()">Checkbox <span>-</span></p>
+                <div id="forCheckBox">
+                    <input type="text" id="labelCheckBox" placeholder="Label">
+                    <input type="text" id="nameCheckBox" placeholder="give a unique name">
+                    <span class="likeLabel">Required</span><input type="checkbox" id="requiredCheckBox">
+
+                    <div id="checkBoxMakerDiv"></div>
+
+                    <button onclick="checkBoxOptionAdd()" class="checkBoxAddRemove">Add</button>
+                    <button onclick="checkBoxOptionRemove()" class="checkBoxAddRemove">Remove</button>
+                    <button onclick="checkBoxTake()">Checkbox Create</button>
+                    <hr>
+                </div>
+
             </div>
             <div class="col-md-7">
-                <form action="" id="dynamicForm" class="form-group">
-
+                <form action="" class="form-group">
+                    <div id="dynamicForm"></div>
+                    <button style="display: none;" id='btnForMainArray'>Submit</button>
                 </form>
             </div>
         </div>
     </div>
-
 
 </body>
 </html>

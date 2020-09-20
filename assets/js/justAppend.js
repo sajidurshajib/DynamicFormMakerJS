@@ -15,7 +15,7 @@ function viewAll(){
     while (clearNode.firstElementChild) {
         clearNode.removeChild(clearNode.lastElementChild);
     }
-
+    
     var mainLength = MainArray.length;
     var i=0;
     while(i<mainLength){
@@ -33,17 +33,15 @@ function viewAll(){
         else if(ob.field == 'radioBtn'){
             radioBtnShow(MainArray[i]);
         }
+        else if(ob.field == 'checkBox'){
+            checkBoxShow(MainArray[i]);
+        }
 
         i+=1;
     }
+    document.getElementById("btnForMainArray").style.display="block";
     console.log(MainArray);
 }
-
-
-
-
-
-
 
 
 // +---------------------------------+
@@ -470,6 +468,147 @@ function radioBtnShow(radioBtnObject){
 
         var elmLabel = document.createElement('LABEL');
         elmLabel.setAttribute('class','radioLabel')
+        var textNodeChild = document.createTextNode(textArr[i]);
+        elmLabel.appendChild(textNodeChild);
+
+        var elmBr = document.createElement('BR');
+
+        document.getElementById('dynamicForm').appendChild(elm);
+        document.getElementById('dynamicForm').appendChild(elmLabel);
+        document.getElementById('dynamicForm').appendChild(elmBr);
+        i+=1;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// +---------------------------------+
+// |                                 |
+// |          CheckBox code          |
+// |                                 |
+// +---------------------------------+
+
+// Button code
+
+function checkBoxShowClick(){
+    document.getElementById("forCheckBox").style.display="block";
+    document.getElementById("checkBoxShowBtn").style.display="none";
+    document.getElementById("checkBoxHideBtn").style.display="block";
+}
+
+function checkBoxHideClick(){
+    document.getElementById("forCheckBox").style.display="none";
+    document.getElementById("checkBoxShowBtn").style.display="block";
+    document.getElementById("checkBoxHideBtn").style.display="none";
+}
+
+// Main code 
+
+function checkBoxOptionAdd(){
+    var input1 = document.createElement('INPUT');
+    var input2 = document.createElement('INPUT');
+
+    input1.setAttribute('class','checkBoxText');
+    input2.setAttribute('class','checkBoxValue');
+
+    input1.setAttribute('placeholder','Text');
+    input2.setAttribute('placeholder','Value');
+
+    document.getElementById('checkBoxMakerDiv').appendChild(input1);
+    document.getElementById('checkBoxMakerDiv').appendChild(input2);
+}
+
+
+function checkBoxOptionRemove(){
+    var clearNode = document.getElementById('checkBoxMakerDiv');
+    clearNode.removeChild(clearNode.lastElementChild);
+    clearNode.removeChild(clearNode.lastElementChild);
+}
+
+
+function checkBoxTake(){
+    var lbl = document.getElementById("labelCheckBox").value; 
+    var nm = document.getElementById("nameCheckBox").value;
+    var rqrd = document.getElementById("requiredCheckBox").checked;
+
+    count += 1;
+    var checkBox = {
+        id:count,
+        field: 'checkBox',
+        label: lbl,
+        name: nm,
+        required:rqrd,
+        textArr:[],
+        valueArr:[]
+    }
+   
+    //dropDown text and value
+    document.querySelectorAll('.checkBoxText').forEach(function(el){
+        checkBox.textArr.push(el.value);
+    });
+
+    document.querySelectorAll('.checkBoxValue').forEach(function(el){
+        checkBox.valueArr.push(el.value);
+    });
+
+
+    MainArray.push(checkBox);
+
+    //Clear all field
+    lbl = document.getElementById('labelCheckBox').value=''; 
+    nm = document.getElementById('nameCheckBox').value='';
+    rqrd = document.getElementById('requiredCheckBox').checked=false;
+
+    var clearNode = document.getElementById('checkBoxMakerDiv');
+    while (clearNode.firstElementChild) {
+        clearNode.removeChild(clearNode.lastElementChild);
+    }
+
+    viewAll();
+}
+
+
+
+
+
+function checkBoxShow(checkBoxObject){
+    var id = checkBoxObject.id;
+    var labelText = checkBoxObject.label;
+    var nameText = checkBoxObject.name;
+    var requiredConfirm = checkBoxObject.required;
+    var textArr = checkBoxObject.textArr;
+    var valueArr = checkBoxObject.valueArr;
+
+    var lbl = document.createElement('LABEL');
+
+    var textNode = document.createTextNode(labelText);
+    lbl.appendChild(textNode)
+
+    document.getElementById('dynamicForm').appendChild(lbl);
+
+    var n = textArr.length;
+    var i = 0;
+    while(i<n){
+        var elm = document.createElement('INPUT');
+        elm.setAttribute('type','checkbox');
+        elm.setAttribute('name',nameText);
+        elm.setAttribute('value',valueArr[i]);
+
+        if(i==0 && requiredConfirm == true){
+            elm.setAttribute('checked','')
+        }
+
+        var elmLabel = document.createElement('LABEL');
+        elmLabel.setAttribute('class','checkBoxLabel')
         var textNodeChild = document.createTextNode(textArr[i]);
         elmLabel.appendChild(textNodeChild);
 
