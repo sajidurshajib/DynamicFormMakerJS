@@ -44,6 +44,48 @@ function viewAll(){
 }
 
 
+
+
+
+
+// +---------------------------------+
+// |                                 |
+// |      Label up down delete       |
+// |                                 |
+// +---------------------------------+
+
+function labelElement(id){
+
+    var ul = document.createElement('UL');
+    var ulIdName = 'labelUl'+String(id);
+    ul.setAttribute('id',ulIdName);
+    ul.setAttribute('class','labelElement');
+
+    var li1 = document.createElement('LI');
+    var li2 = document.createElement('LI');
+    var li3 = document.createElement('LI');
+
+    var textNode1 = document.createTextNode('up');
+    li1.appendChild(textNode1);
+
+    var textNode2 = document.createTextNode('down');
+    li2.appendChild(textNode2);
+
+    var textNode3 = document.createTextNode('remove');
+    li3.appendChild(textNode3);
+
+    document.getElementById('dynamicForm').appendChild(ul);
+
+    document.getElementById(ulIdName).appendChild(li1);
+    document.getElementById(ulIdName).appendChild(li2);
+    document.getElementById(ulIdName).appendChild(li3);
+}
+
+
+
+
+
+
 // +---------------------------------+
 // |                                 |
 // |        textField code           |
@@ -120,6 +162,7 @@ function textFieldShow(textFieldObject){
     
 
     document.getElementById("dynamicForm").appendChild(lbl);
+    labelElement(id);
     document.getElementById("dynamicForm").appendChild(elm);
 
 }
@@ -203,6 +246,7 @@ function textAreaShow(textAreaObject){
     }
 
     document.getElementById("dynamicForm").appendChild(lbl);
+    labelElement(id);
     document.getElementById("dynamicForm").appendChild(elm);
 
 }
@@ -322,6 +366,7 @@ function dropDownShow(dropDownObject){
     }
 
     document.getElementById("dynamicForm").appendChild(lbl);
+    labelElement(id);
     document.getElementById("dynamicForm").appendChild(elm);
 
     var n = textArr.length;
@@ -453,6 +498,7 @@ function radioBtnShow(radioBtnObject){
     lbl.appendChild(textNode)
 
     document.getElementById('dynamicForm').appendChild(lbl);
+    labelElement(id);
 
     var n = textArr.length;
     var i = 0;
@@ -594,6 +640,7 @@ function checkBoxShow(checkBoxObject){
     lbl.appendChild(textNode)
 
     document.getElementById('dynamicForm').appendChild(lbl);
+    labelElement(id);
 
     var n = textArr.length;
     var i = 0;
