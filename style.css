@@ -19,6 +19,10 @@ button:hover{
     background-color: #ff5438;
 }
 
+#btnForMainArray{
+    margin: 25px 0;
+}
+
 /*This is for label*/
 
 label{
