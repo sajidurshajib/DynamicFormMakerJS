@@ -39,7 +39,11 @@ function viewAll(){
 
         i+=1;
     }
-    document.getElementById("btnForMainArray").style.display="block";
+
+    if(MainArray.length!=0){
+        document.getElementById("btnForMainArray").style.display="block";
+    }
+    
     console.log(MainArray);
 }
 
@@ -53,7 +57,6 @@ function viewAll(){
 // |      Label up down delete       |
 // |                                 |
 // +---------------------------------+
-
 function labelElement(id){
 
     var ul = document.createElement('UL');
@@ -67,12 +70,16 @@ function labelElement(id){
 
     var textNode1 = document.createTextNode('up');
     li1.appendChild(textNode1);
+    li1.setAttribute('class',id);
 
     var textNode2 = document.createTextNode('down');
     li2.appendChild(textNode2);
+    li2.setAttribute('class',id);
 
     var textNode3 = document.createTextNode('remove');
     li3.appendChild(textNode3);
+    li3.setAttribute('class',id);
+    li3.setAttribute('onClick','deleteElm('+id+')');
 
     document.getElementById('dynamicForm').appendChild(ul);
 
@@ -81,7 +88,17 @@ function labelElement(id){
     document.getElementById(ulIdName).appendChild(li3);
 }
 
-
+function deleteElm(id){
+    let i=0;
+    while(i<=MainArray.length){
+        if(MainArray[i].id==id){
+            let n = MainArray.indexOf(MainArray[i]);
+            MainArray.splice(n,1)
+        }
+        i=i+1;
+    }
+    viewAll();
+}
 
 
 
@@ -114,18 +131,20 @@ function textFieldTake(){
     var plchldr = document.getElementById("placeholderTextField").value;
     var rqrd = document.getElementById("requiredTextField").checked;
 
-    count += 1;
-    var textField = {
-        id:count,
-        field: 'textField',
-        label: lbl,
-        name: nm,
-        placeholder: plchldr,
-        required:rqrd
+    if(lbl!='' || nm!='' || plchldr!=''){
+        count += 1;
+        var textField = {
+            id:count,
+            field: 'textField',
+            label: lbl,
+            name: nm,
+            placeholder: plchldr,
+            required:rqrd
+        }
+    
+        MainArray.push(textField)
+        //var test = Object.values(MainArray[0]);
     }
-   
-    MainArray.push(textField)
-    //var test = Object.values(MainArray[0]);
 
     lbl = document.getElementById("labelTextField").value=''; 
     nm = document.getElementById("nameTextField").value='';
@@ -202,18 +221,19 @@ function textAreaTake(){
     var plchldr = document.getElementById("placeholderTextArea").value;
     var rqrd = document.getElementById("requiredTextArea").checked;
 
-    count += 1;
-    var textArea = {
-        id:count,
-        field: 'textArea',
-        label: lbl,
-        name: nm,
-        placeholder: plchldr,
-        required:rqrd
+    if(lbl!='' || nm!='' || plchldr!=''){
+        count += 1;
+        var textArea = {
+            id:count,
+            field: 'textArea',
+            label: lbl,
+            name: nm,
+            placeholder: plchldr,
+            required:rqrd
+        }
+        MainArray.push(textArea)
+        //var test = Object.values(MainArray[0]);
     }
-   
-    MainArray.push(textArea)
-    //var test = Object.values(MainArray[0]);
 
     lbl = document.getElementById("labelTextArea").value=''; 
     nm = document.getElementById("nameTextArea").value='';
@@ -306,28 +326,26 @@ function dropDownTake(){
     var nm = document.getElementById("nameDropDown").value;
     var rqrd = document.getElementById("requiredDropDown").checked;
 
-    count += 1;
-    var dropDown = {
-        id:count,
-        field: 'dropDown',
-        label: lbl,
-        name: nm,
-        required:rqrd,
-        textArr:[],
-        valueArr:[]
+    if(lbl!='' || nm!=''){
+        count += 1;
+        var dropDown = {
+            id:count,
+            field: 'dropDown',
+            label: lbl,
+            name: nm,
+            required:rqrd,
+            textArr:[],
+            valueArr:[]
+        }
+        //dropDown text and value
+        document.querySelectorAll('.dropText').forEach(function(el){
+            dropDown.textArr.push(el.value);
+        });
+        document.querySelectorAll('.dropValue').forEach(function(el){
+            dropDown.valueArr.push(el.value);
+        });
+        MainArray.push(dropDown);
     }
-   
-    //dropDown text and value
-    document.querySelectorAll('.dropText').forEach(function(el){
-        dropDown.textArr.push(el.value);
-    });
-
-    document.querySelectorAll('.dropValue').forEach(function(el){
-        dropDown.valueArr.push(el.value);
-    });
-
-
-    MainArray.push(dropDown);
 
     //Clear all field
     lbl = document.getElementById("labelDropDown").value=''; 
@@ -444,29 +462,31 @@ function radioTake(){
     var nm = document.getElementById("nameRadio").value;
     var rqrd = document.getElementById("requiredRadio").checked;
 
-    count += 1;
-    var radioBtn = {
-        id:count,
-        field: 'radioBtn',
-        label: lbl,
-        name: nm,
-        required:rqrd,
-        textArr:[],
-        valueArr:[]
+    if(lbl!='' || nm!=''){
+        count += 1;
+        var radioBtn = {
+            id:count,
+            field: 'radioBtn',
+            label: lbl,
+            name: nm,
+            required:rqrd,
+            textArr:[],
+            valueArr:[]
+        }
+    
+        //dropDown text and value
+        document.querySelectorAll('.radioText').forEach(function(el){
+            radioBtn.textArr.push(el.value);
+        });
+
+        document.querySelectorAll('.radioValue').forEach(function(el){
+            radioBtn.valueArr.push(el.value);
+        });
+
+        MainArray.push(radioBtn);
     }
-   
-    //dropDown text and value
-    document.querySelectorAll('.radioText').forEach(function(el){
-        radioBtn.textArr.push(el.value);
-    });
 
-    document.querySelectorAll('.radioValue').forEach(function(el){
-        radioBtn.valueArr.push(el.value);
-    });
-
-
-    MainArray.push(radioBtn);
-
+    
     //Clear all field
     lbl = document.getElementById('labelRadio').value=''; 
     nm = document.getElementById('nameRadio').value='';
@@ -586,29 +606,31 @@ function checkBoxTake(){
     var nm = document.getElementById("nameCheckBox").value;
     var rqrd = document.getElementById("requiredCheckBox").checked;
 
-    count += 1;
-    var checkBox = {
-        id:count,
-        field: 'checkBox',
-        label: lbl,
-        name: nm,
-        required:rqrd,
-        textArr:[],
-        valueArr:[]
+    if(lbl!='' || nm!=''){
+        count += 1;
+        var checkBox = {
+            id:count,
+            field: 'checkBox',
+            label: lbl,
+            name: nm,
+            required:rqrd,
+            textArr:[],
+            valueArr:[]
+        }
+    
+        //dropDown text and value
+        document.querySelectorAll('.checkBoxText').forEach(function(el){
+            checkBox.textArr.push(el.value);
+        });
+
+        document.querySelectorAll('.checkBoxValue').forEach(function(el){
+            checkBox.valueArr.push(el.value);
+        });
+
+        MainArray.push(checkBox);
     }
-   
-    //dropDown text and value
-    document.querySelectorAll('.checkBoxText').forEach(function(el){
-        checkBox.textArr.push(el.value);
-    });
 
-    document.querySelectorAll('.checkBoxValue').forEach(function(el){
-        checkBox.valueArr.push(el.value);
-    });
-
-
-    MainArray.push(checkBox);
-
+    
     //Clear all field
     lbl = document.getElementById('labelCheckBox').value=''; 
     nm = document.getElementById('nameCheckBox').value='';
